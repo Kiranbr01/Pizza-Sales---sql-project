@@ -1,33 +1,49 @@
 # 🍕 Pizza Sales SQL Project
 
 ## 📖 Overview
-This project analyzes **Pizza Sales Data** using **Structured Query Language (SQL)** to uncover insights about customer orders, sales performance, and revenue trends.  
-It demonstrates SQL proficiency across both **basic** and **intermediate-level queries** including aggregation, joins, grouping, subqueries, and window functions.
+An analytical SQL project exploring **pizza sales data** to uncover insights on revenue, order patterns, and product performance.  
+It demonstrates SQL skills through aggregation, joins, grouping, and window functions.
 
 ---
 
 ## 🎯 Objectives
-- Retrieve key performance metrics like total orders and total revenue.  
-- Identify best-selling pizzas and most preferred pizza sizes.  
-- Analyze sales trends by time and category.  
-- Understand revenue contribution by each pizza category.  
-- Use window functions for ranking and cumulative analysis.
+- Calculate key business metrics like total sales and orders.  
+- Identify best-selling pizzas and categories.  
+- Analyze order trends by time and size.  
+- Evaluate category-wise revenue contributions.
 
 ---
 
-## 🗂️ Database Structure
-
+## 🗂️ Database Tables
 | Table | Description |
 |--------|-------------|
-| **orders** | Stores order ID, order date, and order time. |
-| **order_details** | Contains each order item with quantity and pizza ID. |
-| **pizzas** | Includes pizza ID, size, price, and type ID. |
-| **pizza_types** | Includes pizza type name, category, and description. |
+| **orders** | Order IDs, dates, and times |
+| **order_details** | Order-level pizza quantities |
+| **pizzas** | Pizza size, price, and type ID |
+| **pizza_types** | Pizza names and categories |
 
 ---
 
-## 🧩 Basic SQL Queries
+## 🧩 SQL Highlights
+- Aggregations using `SUM`, `COUNT`, `AVG`  
+- Multi-table joins for combined insights  
+- Time-based grouping with `HOUR()` and `DATE()`  
+- Window functions (`RANK()`, `OVER()`) for ranking and cumulative totals  
+- Subqueries for daily and category averages  
 
-### 1️⃣ Retrieve the total number of orders placed
-```sql
-SELECT COUNT(order_id) AS total_orders FROM orders;
+---
+
+## 📊 Key Insights
+- **Large pizzas** were most frequently ordered.  
+- **Classic and Supreme** categories led total sales.  
+- Top 3 pizzas generated most of the revenue.  
+- Peak orders occurred during **evening hours**.  
+- Cumulative revenue showed consistent growth
+
+---
+
+## 🚀 How to Use
+1. Clone the repo  
+   ```bash
+   git clone https://github.com/<your-username>/pizza-sales-sql-project.git
+
