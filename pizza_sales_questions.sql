@@ -1,9 +1,10 @@
 -- 🍕 PIZZA SALES SQL PROJECT - FULL SCRIPT
 -- -----------------------------------------
--- This file includes:
+-- Includes:
 -- 1️⃣ Database creation
--- 2️⃣ Table creation and relationships
--- 3️⃣ Basic, Intermediate, and Advanced SQL queries for analysis
+-- 2️⃣ Table creation
+-- 3️⃣ Data import instructions
+-- 4️⃣ Basic, Intermediate, and Advanced SQL analysis queries
 
 
 -- ================================
@@ -53,7 +54,24 @@ CREATE TABLE order_details (
 
 
 -- ================================
--- 🔹 STEP 3: BASIC SQL QUERIES
+-- 🔹 STEP 3: IMPORT CSV DATA
+-- ================================
+-- To import CSV data into MySQL Workbench:
+-- 1️⃣ Download the dataset files:
+--      • pizza_types.csv
+--      • pizzas.csv
+--      • orders.csv
+--      • order_details.csv
+-- 2️⃣ Open MySQL Workbench and connect to your local server.
+-- 3️⃣ Select your database: USE pizza_sales;
+-- 4️⃣ Right-click each table → “Table Data Import Wizard”
+-- 5️⃣ Choose the corresponding CSV file and complete the import.
+-- 6️⃣ Verify the import using:
+--      SELECT COUNT(*) FROM table_name;
+
+
+-- ================================
+-- 🔹 STEP 4: BASIC SQL QUERIES
 -- ================================
 
 -- 1. Retrieve the total number of orders placed.
@@ -90,7 +108,7 @@ LIMIT 5;
 
 
 -- ================================
--- 🔹 STEP 4: INTERMEDIATE SQL QUERIES
+-- 🔹 STEP 5: INTERMEDIATE SQL QUERIES
 -- ================================
 
 -- 6. Find the total quantity of each pizza category ordered.
@@ -131,7 +149,7 @@ LIMIT 3;
 
 
 -- ================================
--- 🔹 STEP 5: ADVANCED SQL QUERIES
+-- 🔹 STEP 6: ADVANCED SQL QUERIES
 -- ================================
 
 -- 11. Calculate the percentage contribution of each pizza category to total revenue.
