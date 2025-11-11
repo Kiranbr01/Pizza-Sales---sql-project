@@ -1,11 +1,59 @@
--- 🍕 PIZZA SALES SQL PROJECT - QUESTION FILE
--- -------------------------------------------
--- This file contains Basic, Intermediate, and Advanced SQL questions
--- used for pizza sales data analysis.
+-- 🍕 PIZZA SALES SQL PROJECT - FULL SCRIPT
+-- -----------------------------------------
+-- This file includes:
+-- 1️⃣ Database creation
+-- 2️⃣ Table creation and relationships
+-- 3️⃣ Basic, Intermediate, and Advanced SQL queries for analysis
 
 
 -- ================================
--- 🔹 BASIC SQL QUESTIONS
+-- 🔹 STEP 1: CREATE DATABASE
+-- ================================
+CREATE DATABASE pizza_sales;
+USE pizza_sales;
+
+
+-- ================================
+-- 🔹 STEP 2: CREATE TABLES
+-- ================================
+
+-- Table: pizza_types
+CREATE TABLE pizza_types (
+    pizza_type_id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100),
+    category VARCHAR(50),
+    ingredients TEXT
+);
+
+-- Table: pizzas
+CREATE TABLE pizzas (
+    pizza_id VARCHAR(50) PRIMARY KEY,
+    pizza_type_id VARCHAR(50),
+    size VARCHAR(5),
+    price DECIMAL(5,2),
+    FOREIGN KEY (pizza_type_id) REFERENCES pizza_types(pizza_type_id)
+);
+
+-- Table: orders
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    order_date DATE,
+    order_time TIME
+);
+
+-- Table: order_details
+CREATE TABLE order_details (
+    order_details_id INT PRIMARY KEY,
+    order_id INT,
+    pizza_id VARCHAR(50),
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (pizza_id) REFERENCES pizzas(pizza_id)
+);
+
+
+-- ================================
+-- 🔹 STEP 3: BASIC SQL QUERIES
 -- ================================
 
 -- 1. Retrieve the total number of orders placed.
@@ -42,7 +90,7 @@ LIMIT 5;
 
 
 -- ================================
--- 🔹 INTERMEDIATE SQL QUESTIONS
+-- 🔹 STEP 4: INTERMEDIATE SQL QUERIES
 -- ================================
 
 -- 6. Find the total quantity of each pizza category ordered.
@@ -83,7 +131,7 @@ LIMIT 3;
 
 
 -- ================================
--- 🔹 ADVANCED SQL QUESTIONS
+-- 🔹 STEP 5: ADVANCED SQL QUERIES
 -- ================================
 
 -- 11. Calculate the percentage contribution of each pizza category to total revenue.
@@ -148,3 +196,5 @@ JOIN pizzas ON order_details.pizza_id = pizzas.pizza_id
 JOIN pizza_types ON pizzas.pizza_type_id = pizza_types.pizza_type_id
 GROUP BY pizza_types.category, pizzas.size
 ORDER BY pizza_types.category;
+
+
